@@ -109,10 +109,17 @@
     for (var i = 0; i < stubs.length; i++) load(stubs[i]);
   }
 
+  // setTimeout, NOT requestAnimationFrame. rAF does not fire at all while the
+  // document is hidden, so a page opened in a background tab (middle-click,
+  // session restore) or rendered by a headless client that reports hidden would
+  // load only the block whose stub existed at the first synchronous scan — the
+  // rest stay empty until the tab is focused. Measured on the live page: rAF
+  // never fired, setTimeout did. Timers are throttled in background tabs but
+  // they do run, which is the property this needs.
   function scheduleScan() {
     if (queued) return;
     queued = true;
-    requestAnimationFrame(scan);
+    setTimeout(scan, 0);
   }
 
   if (document.readyState === "loading") {
