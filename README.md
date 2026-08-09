@@ -46,8 +46,37 @@ fragments cacheable at all (Cloudflare treats HTML as dynamic by default).
 ## Why this exists
 
 The site runs on Softr, which has no API for pages — page code is pasted by hand in Softr
-Studio and there is no way around that. The plan in use also exposes no page-head custom code,
-only blocks. So the **first custom-code block on a page** carries a bootstrap:
+Studio and there is no way around that. So the loader is started once, from Softr's **global
+footer** custom code, and every page picks it up:
+
+```html
+<script>
+(function () {
+  var s = document.createElement('script');
+  s.src = 'https://assets.findas.org/assets/loader.js';
+  document.head.appendChild(s);
+})();
+</script>
+```
+
+`loader.js` pulls in `site.js` itself. A **migrated page** then needs only the stylesheet and
+its stubs — the stylesheet stays in the page rather than being injected, both so it downloads in
+parallel and because it carries rules with whole-document effect (`html { font-size: 12px }`
+under 768px) that must not reach pages that did not opt in.
+
+```html
+<link rel="stylesheet" href="https://assets.findas.org/assets/findas.css">
+<div data-findas-include="portfolio/block-1"></div>
+```
+
+and every other block on that page carries the stub line alone.
+
+<details><summary>Superseded: the per-page bootstrap</summary>
+
+Before the footer bootstrap, the **first custom-code block on a page** carried this. It still
+works — the loader guards against running twice — but it is one paste per page instead of one
+for the site.</details>
+
 
 ```html
 <script>
