@@ -3,7 +3,31 @@
 Public assets for the [FinDaS](https://www.findas.org) website: stylesheet, scripts, and the
 HTML fragments that fill the site's custom-code blocks.
 
-Served by GitHub Pages at `https://assets.findas.org/`. A push is a deploy.
+Served by GitHub Pages at `https://assets.findas.org/`, behind the Cloudflare that already
+fronts findas.org. A push is a deploy.
+
+## Deploying
+
+1. Push. GitHub Pages rebuilds in roughly 45 seconds.
+2. **Purge Cloudflare** (Caching → Configuration → Purge Everything), or wait out the
+   600-second edge TTL.
+
+Skipping step 2 is the failure that has already happened once: Cloudflare kept serving the
+previous `loader.js`, which still pointed at the old origin, and the fragments failed CORS on
+a redirect. It presents as a CORS error and is not one.
+
+Two things that make it hard to diagnose, both worth knowing before you start debugging:
+
+- **A cache-busting query string proves nothing.** `?v=123` is a different cache key, so it
+  fetches fresh while the real URL keeps serving stale. Always verify the exact URL the page
+  requests.
+- **A Cloudflare purge does not clear browser caches.** Anyone who loaded a file before the
+  Cache Rule existed holds it under the old 4-hour `max-age` until it expires. New visitors are
+  unaffected; hard-reload to test.
+
+A Cache Rule scoped to `assets.findas.org` is required, not optional — it restores the origin's
+600-second TTL over Cloudflare's legacy 4-hour Browser Cache TTL, and makes the `.html`
+fragments cacheable at all (Cloudflare treats HTML as dynamic by default).
 
 ## Why this exists
 
