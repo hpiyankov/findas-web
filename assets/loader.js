@@ -36,12 +36,26 @@
   if (window.__findasLoader) return;
   window.__findasLoader = true;
 
-  var BASE = "https://assets.findas.org/pages/";
+  var ROOT = "https://assets.findas.org/";
+  var BASE = ROOT + "pages/";
   var ATTR = "data-findas-include";
   var DONE = "data-findas-loaded";
   var ATTEMPTS = 3;      // total tries per fragment
   var TIMEOUT_MS = 8000; // a hung request is as fatal as a failed one
   var queued = false;
+
+  // site.js, but never the stylesheet. The stylesheet carries rules with
+  // whole-document effect and must only reach pages that opted in; site.js is
+  // delegated listeners that are inert wherever their selectors do not match,
+  // so loading it is safe anywhere. Matching on the src rather than a marker
+  // attribute means a copy loaded from the global footer is also detected.
+  // A duplicate would be harmless regardless — site.js guards its own body —
+  // this only avoids a pointless second request.
+  if (!document.querySelector('script[src$="/assets/site.js"]')) {
+    var sj = document.createElement("script");
+    sj.src = ROOT + "assets/site.js";
+    document.head.appendChild(sj);
+  }
 
   function fetchFragment(url) {
     // No `cache: "no-cache"`. Freshness is handled by the 600s TTL these
