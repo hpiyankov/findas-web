@@ -8,14 +8,27 @@ Served by GitHub Pages at `https://hpiyankov.github.io/findas-web/`. A push is a
 ## Why this exists
 
 The site runs on Softr, which has no API for pages — page code is pasted by hand in Softr
-Studio and there is no way around that. So each block is pasted **once**, as a stub:
+Studio and there is no way around that. The plan in use also exposes no page-head custom code,
+only blocks. So the **first custom-code block on a page** carries a bootstrap:
 
 ```html
+<script>
+(function(){var s=document.createElement('script');
+s.src='https://hpiyankov.github.io/findas-web/assets/loader.js';
+document.head.appendChild(s);})();
+</script>
 <div data-findas-include="portfolio/block-1"></div>
 ```
 
-`assets/loader.js` finds the stub and injects `pages/portfolio/block-1.html` from this repo.
-After that the content is edited here and goes live on push.
+and **every other block on that page** carries the stub line alone:
+
+```html
+<div data-findas-include="portfolio/block-2"></div>
+```
+
+`loader.js` pulls in `findas.css` and `site.js` itself, then fills each stub from `pages/`.
+Adding a font or another script later needs no re-paste. The bootstrap is inline because Softr
+is known to execute inline block scripts; `<script src>` in a block is unverified.
 
 ## Layout
 
