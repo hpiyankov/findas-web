@@ -1,0 +1,183 @@
+<!-- =====================================================================
+     /portfolio — BLOCK 1 of 3
+     Goes ABOVE the Softr "news cards / success stories" dynamic block.
+
+     SOURCE OF TRUTH for what is pasted into the Softr Custom Code block.
+     Edit here, then paste. The <style> that used to live in this file has
+     moved to website/assets/findas.css and is loaded via a <link> in
+     Softr Page Settings -> Custom Code (head) for this page.
+
+     What stays inline and why: the JSON-LD blocks and the visible hero
+     markup are what search and LLM crawlers read. Injecting them from an
+     external script would put them behind JS execution, which Google
+     handles late and most AI crawlers not at all. See decisions.md.
+     ===================================================================== -->
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.findas.org"},{"@type":"ListItem","position":2,"name":"Clients"}]}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "FinDaS Tokenomics Clients",
+  "description": "Public subset of FinDaS's 300+ tokenomics engagements",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Input Output Group (IOHK)"},
+    {"@type": "ListItem", "position": 2, "name": "Midnight Network", "url": "https://www.findas.org/case-studies/midnight-tokenomics"},
+    {"@type": "ListItem", "position": 3, "name": "IoTeX"},
+    {"@type": "ListItem", "position": 4, "name": "Linguard"},
+    {"@type": "ListItem", "position": 5, "name": "Alethea AI"},
+    {"@type": "ListItem", "position": 6, "name": "CryptoSlam"},
+    {"@type": "ListItem", "position": 7, "name": "Sbarter"},
+    {"@type": "ListItem", "position": 8, "name": "Estia Payments"},
+    {"@type": "ListItem", "position": 9, "name": "Aether Games"},
+    {"@type": "ListItem", "position": 10, "name": "Gameplay Galaxy"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Review",
+      "itemReviewed": {"@type": "Organization", "name": "FinDaS", "url": "https://www.findas.org"},
+      "author": {"@type": "Person", "name": "Eran Barak", "jobTitle": "CEO", "worksFor": {"@type": "Organization", "name": "Midnight"}},
+      "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+      "reviewBody": "Input Output Group worked with FinDaS to design and validate the Midnight network tokenomics. FinDaS understood our unique and complex needs, acting as a trusted partner to our research team. Their professional, timely, and detailed work exceeded our expectations. I highly recommend FinDaS."
+    },
+    {
+      "@type": "Review",
+      "itemReviewed": {"@type": "Organization", "name": "FinDaS", "url": "https://www.findas.org"},
+      "author": {"@type": "Person", "name": "Aaran Dobson", "jobTitle": "CDO", "worksFor": {"@type": "Organization", "name": "Ourworld"}},
+      "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+      "reviewBody": "It has been extremely difficult to find a company that could realistically handle a Tokenomics paper of this magnitude and complexity. As soon as we spoke to Hristo and his team we knew we were in safe hands. We are extremely happy with their product and support."
+    },
+    {
+      "@type": "Review",
+      "itemReviewed": {"@type": "Organization", "name": "FinDaS", "url": "https://www.findas.org"},
+      "author": {"@type": "Organization", "name": "Master Ventures"},
+      "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+      "reviewBody": "We are completely blown away by the work. The attention to detail and extensiveness of what FinDaS delivers is exceptional. They really understand token utility and use cases."
+    },
+    {
+      "@type": "Review",
+      "itemReviewed": {"@type": "Organization", "name": "FinDaS", "url": "https://www.findas.org"},
+      "author": {"@type": "Person", "name": "Brandon Kind", "jobTitle": "CEO", "worksFor": {"@type": "Organization", "name": "Clutch"}},
+      "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+      "reviewBody": "FinDaS have truly exceeded expectations with their exceptional work. They brought an extraordinary level of industry expertise to a highly technical task. Their domain expertise is amongst the few that stand out in this field."
+    },
+    {
+      "@type": "Review",
+      "itemReviewed": {"@type": "Organization", "name": "FinDaS", "url": "https://www.findas.org"},
+      "author": {"@type": "Person", "name": "Paul Dube", "jobTitle": "CTO", "worksFor": {"@type": "Organization", "name": "Liquidus"}},
+      "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+      "reviewBody": "His skill in understanding the business, revenue, and token model far surpassed our expectation. His service was extremely organized, very professional, and his delivery was prompt."
+    },
+    {
+      "@type": "Review",
+      "itemReviewed": {"@type": "Organization", "name": "FinDaS", "url": "https://www.findas.org"},
+      "author": {"@type": "Person", "name": "Demelza Hays", "jobTitle": "Head of Research", "worksFor": {"@type": "Organization", "name": "Cointelegraph"}},
+      "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+      "reviewBody": "So professional, timely, and thorough. Excellent with cryptocurrency analysis and math. Could not have been happier."
+    },
+    {
+      "@type": "Review",
+      "itemReviewed": {"@type": "Organization", "name": "FinDaS", "url": "https://www.findas.org"},
+      "author": {"@type": "Person", "name": "Clay Collins", "jobTitle": "CEO", "worksFor": {"@type": "Organization", "name": "Nomics"}},
+      "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+      "reviewBody": "Excellent work. One of the best writers I have worked with. Did everything above expectations. There are only a few people in the world with the domain knowledge to complete this project."
+    },
+    {
+      "@type": "Review",
+      "itemReviewed": {"@type": "Organization", "name": "FinDaS", "url": "https://www.findas.org"},
+      "author": {"@type": "Person", "name": "Lukas N.", "jobTitle": "COO", "worksFor": {"@type": "Organization", "name": "Bridge Mutual"}},
+      "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+      "reviewBody": "Working with FinDaS redefines your understanding of great work and work ethics. Consistently introducing new models and ideas, all followed by flawless execution."
+    },
+    {
+      "@type": "Review",
+      "itemReviewed": {"@type": "Organization", "name": "FinDaS", "url": "https://www.findas.org"},
+      "author": {"@type": "Person", "name": "Dr Marta Szluinska", "jobTitle": "Director of Operations", "worksFor": {"@type": "Organization", "name": "Midnight"}},
+      "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+      "reviewBody": "We genuinely cannot think of a single instance where FinDaS came even close to disappointing our Chief Architect. Their ability to consistently meet and often exceed expectations is remarkable."
+    },
+    {
+      "@type": "Review",
+      "itemReviewed": {"@type": "Organization", "name": "FinDaS", "url": "https://www.findas.org"},
+      "author": {"@type": "Person", "name": "Michael Klein", "jobTitle": "CEO", "worksFor": {"@type": "Organization", "name": "Fuel"}},
+      "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+      "reviewBody": "FinDaS were able to clearly understand our objectives, provide feedback along with real world examples of success with different models. Truly made the experience a lot less daunting."
+    },
+    {
+      "@type": "Review",
+      "itemReviewed": {"@type": "Organization", "name": "FinDaS", "url": "https://www.findas.org"},
+      "author": {"@type": "Person", "name": "Mike Yap", "jobTitle": "CEO", "worksFor": {"@type": "Organization", "name": "Conscious"}},
+      "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+      "reviewBody": "The best tokenomics expert in the blockchain industry. Highly reliable, clear communication, fast turnaround, and extremely knowledgeable."
+    },
+    {
+      "@type": "Review",
+      "itemReviewed": {"@type": "Organization", "name": "FinDaS", "url": "https://www.findas.org"},
+      "author": {"@type": "Person", "name": "Raamayan Anada", "jobTitle": "CEO", "worksFor": {"@type": "Organization", "name": "VEME"}},
+      "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+      "reviewBody": "One of the BEST I have found. Knows tokenomics and modeling like the back of his hand. Very impressed with the work."
+    },
+    {
+      "@type": "Review",
+      "itemReviewed": {"@type": "Organization", "name": "FinDaS", "url": "https://www.findas.org"},
+      "author": {"@type": "Person", "name": "William Vacher", "jobTitle": "CEO", "worksFor": {"@type": "Organization", "name": "IAP Network"}},
+      "reviewRating": {"@type": "Rating", "ratingValue": "5", "bestRating": "5"},
+      "reviewBody": "Reliable, domain expert who goes the extra mile. Vital part of our team."
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Who are FinDaS's tokenomics clients?", "acceptedAnswer": {"@type": "Answer", "text": "FinDaS has worked with 300+ Web3 projects since 2017. Named clients with public permission to share include Input Output Group's Midnight network, Cointelegraph Research, Fuel, Master Ventures, and Aether Games. The majority of engagements are under NDA."}},
+    {"@type": "Question", "name": "What types of Web3 projects does FinDaS work with?", "acceptedAnswer": {"@type": "Answer", "text": "Layer 1 and Layer 2 blockchains, DeFi protocols, GameFi and P2E, DePIN, RWA tokenization, stablecoins, NFTs, and fintech projects adding a token layer. Portfolio covers 300+ engagements across every major chain."}},
+    {"@type": "Question", "name": "Can I speak with past FinDaS clients as references?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, direct references are available on request for serious engagements. Please mention this during the introductory call, and we will connect you with relevant past clients based on your project type."}},
+    {"@type": "Question", "name": "Why are most projects listed as 'Under NDA'?", "acceptedAnswer": {"@type": "Answer", "text": "Most tokenomics engagements involve confidential pre-launch designs, token distribution models, and competitive positioning. Clients require NDA coverage until launch, and often beyond. The public subset on this page is what we have explicit permission to share."}}
+  ]
+}
+</script>
+
+<div class="page-wrap">
+
+<section class="pf-hero">
+<h1>Our <span class="h1-teal">clients.</span> And their <span class="h1-under-rust">success stories.</span></h1>
+<p>FinDaS has designed tokenomics for 300+ Web3 projects since 2017, including Input Output Group's <a href="/case-studies/midnight-tokenomics">Midnight network</a>, <a href="/case-studies/cointelegraph-research-tokenomics">Cointelegraph Research</a>, Fuel, and Master Ventures. Engagements are led by <a href="/blogs/hristo-piyankov">Hristo Piyankov</a>, Lead Token Economist.</p>
+<p>Most engagements are covered by NDA, a reflection of how sensitive early-stage tokenomics work is. What appears below is the public subset.</p>
+<a href="/meet" class="intro-cta">Book a free introductory call</a>
+</section>
+
+<div class="pf-stats-card">
+<div class="stat-block">
+<span class="stat-num">200+</span>
+<span class="stat-label">Tokenomics designed</span>
+</div>
+<div class="stat-block">
+<span class="stat-num">$1 BN+</span>
+<span class="stat-label">Raised by our clients</span>
+</div>
+<div class="stat-block">
+<span class="stat-num">300+</span>
+<span class="stat-label">Projects advised</span>
+</div>
+<div class="stat-block">
+<span class="stat-num">All</span>
+<span class="stat-label">Chains supported</span>
+</div>
+</div>
+
+<h2 class="section-heading">In the <em class="h-em">news</em>.</h2>
+
+</div>

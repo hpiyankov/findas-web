@@ -1,0 +1,119 @@
+/* =====================================================================
+   findas.css — FinDaS website stylesheet
+   Source of truth. Served to the live Softr site via jsDelivr from the
+   public mirror repo; see website/decisions.md 2026-08-09.
+
+   Loaded per-page via Softr Page Settings -> Custom Code (head), NOT via
+   app-level Settings. Reason: the `html { font-size: 12px }` mobile rule
+   and the unnamespaced `.page-wrap` overrides below are global in effect
+   and would change every page in the app if injected app-wide.
+
+   Currently covers: /portfolio (blocks 1-3).
+   Split into base + per-page files when a second page lands and the
+   genuinely shared subset is observable rather than guessed.
+   ===================================================================== */
+
+/* -------- REQUIRED SOFTR OVERRIDES -------- */
+.page-wrap { position: relative; z-index: 2; }
+.page-wrap p, .page-wrap h1, .page-wrap h2, .page-wrap h3, .page-wrap a,
+.page-wrap li, .page-wrap span, .page-wrap blockquote, .page-wrap td,
+.page-wrap th, .page-wrap div { white-space: normal !important; }
+
+/* -------- HEADING EMPHASIS (from anchor) -------- */
+.h-em { font-style: italic; color: #138d94; font-weight: inherit; }
+.h1-teal { color: #138d94; font-style: italic; }
+.h1-under-rust { background-image: linear-gradient(#d77659, #d77659); background-repeat: no-repeat; background-position: 0 100%; background-size: 100% 0.1em; padding-bottom: 0.08em; }
+
+/* -------- HERO (Secondary tier H1) -------- */
+.pf-hero { padding: 20px 1rem 10px 1rem; text-align: left; }
+.pf-hero h1 { font-size: clamp(1.85rem, 3vw, 3rem); margin: 0 0 32px 0; color: #1a1a1a; font-weight: 700; text-align: left; line-height: 1.05; letter-spacing: -0.01em; }
+.pf-hero p { font-size: 1.125rem; font-weight: 300; line-height: 1.6; color: #1a1a1a; margin: 0 0 16px 0; }
+.pf-hero p a { color: #138d94; text-decoration: underline !important; }
+.pf-hero p a:hover { opacity: 0.8; }
+
+/* -------- PRIMARY INTRO CTA (teal button) -------- */
+.intro-cta { display: inline-flex; align-items: center; margin-top: 16px; font-size: 1.125rem; font-weight: 600; color: #ffffff; background-color: #138d94; text-decoration: none !important; padding: 12px 22px; border-radius: 6px; transition: transform 0.15s ease, opacity 0.15s ease; }
+.intro-cta:hover { transform: translateY(-1px); opacity: 0.95; text-decoration: none !important; color: #ffffff; }
+.intro-cta::after { content: " \2192"; margin-left: 8px; }
+
+/* -------- STATS CARD (horizontal strip, non-clickable on portfolio) -------- */
+.pf-stats-card { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding: 36px 40px; margin: 30px 1rem 20px 1rem; background: #138d94; border-radius: 12px; box-shadow: 0 6px 20px rgba(19,141,148,0.18); text-align: center; }
+.pf-stats-card .stat-block { text-align: center; }
+.pf-stats-card .stat-num { display: block; font-size: 2.4rem; font-weight: 600; color: white; line-height: 1.2; margin-bottom: 6px; }
+.pf-stats-card .stat-label { display: block; font-size: 1rem; font-weight: 500; color: rgba(255,255,255,0.95); }
+
+/* -------- SECTION HEADING (black + h-em from anchor) -------- */
+.section-heading { font-size: 2rem; color: #1a1a1a; font-weight: 600; margin: 60px 0 20px 0; padding: 0 1rem; scroll-margin-top: 80px; }
+.section-subhead { font-size: 1.125rem; font-weight: 300; color: #444; margin: -8px 0 20px 0; padding: 0 1rem; line-height: 1.5; max-width: 1000px; }
+
+/* -------- TESTIMONIAL CARDS (Block 2) -------- */
+.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 0 1rem 20px 1rem; align-items: stretch; }
+.testimonial-card { background: #fff; border: 1.5px solid rgba(19,141,148,0.15); border-radius: 12px; padding: 30px 26px 22px 26px; display: flex; flex-direction: column; position: relative; overflow: hidden; transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease; }
+.testimonial-card:hover { transform: translateY(-3px); border-color: #138d94; box-shadow: 0 8px 24px rgba(19,141,148,0.12); }
+.testimonial-card .quote { position: absolute; top: 10px; right: 16px; font-size: 6rem; font-weight: bold; opacity: 0.15; line-height: 1; color: #138d94; pointer-events: none; font-family: Georgia, "Times New Roman", serif; z-index: 1; }
+.testimonial-card .tm-quote { position: relative; z-index: 2; font-size: 1rem; font-weight: 300; line-height: 1.65; color: #1a1a1a; margin: 0 0 20px 0; flex-grow: 1; }
+.testimonial-card .tm-attribution { position: relative; z-index: 2; padding-top: 14px; border-top: 1px solid rgba(19,141,148,0.15); }
+.testimonial-card .tm-author { display: block; font-size: 1rem; font-weight: 700; color: #138d94; margin-bottom: 2px; }
+.testimonial-card .tm-title { display: block; font-size: 0.85rem; font-weight: 400; color: #666; }
+.testimonial-card .tm-title a { color: #138d94; text-decoration: underline !important; font-weight: 600; }
+.testimonial-card .tm-title a:hover { opacity: 0.8; }
+
+/* -------- PORTFOLIO INTRO (Block 2, above the Softr project grid) -------- */
+.pf-intro { font-size: 1.125rem; font-weight: 300; line-height: 1.6; color: #1a1a1a; margin: 0 0 20px 0; padding: 0 1rem; max-width: 1000px; }
+
+/* -------- FAQ SECTION (Block 3, sticky heading + accordion) -------- */
+.faq-section { margin: 40px 0; padding: 0 1rem; }
+@media (min-width: 900px) {
+  .faq-section { display: grid; grid-template-columns: minmax(280px, 1fr) 2fr; gap: 60px; align-items: start; padding: 0; }
+  .faq-heading-col { position: sticky; top: 40px; }
+  .faq-section .section-heading { text-align: left; margin-top: 0; }
+  .faq-section .section-subhead { text-align: left; margin-left: 0; margin-right: 0; }
+  .faq-questions-col .faq-accordion { padding-left: 0; padding-right: 0; }
+}
+.faq-accordion { display: flex; flex-direction: column; padding: 0 1rem 20px 1rem; }
+.faq-acc-item { border-bottom: 1px solid rgba(19,141,148,0.15); }
+.faq-acc-item:first-child { border-top: 1px solid rgba(19,141,148,0.15); }
+.faq-acc-q { display: flex; align-items: center; gap: 16px; width: 100%; background: none; border: 0; padding: 18px 4px; cursor: pointer; text-align: left; font-size: 1.125rem; font-weight: 500; color: #138d94; line-height: 1.4; }
+.faq-acc-q .faq-num { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; color: #999; flex-shrink: 0; min-width: 30px; }
+.faq-acc-q .faq-q-text { flex: 1; }
+.faq-acc-q .faq-plus { font-size: 1.5rem; font-weight: 300; color: #138d94; transition: transform 0.25s ease; flex-shrink: 0; line-height: 1; }
+.faq-acc-item.open .faq-acc-q .faq-plus { transform: rotate(45deg); }
+.faq-acc-a { display: none; padding: 0 0 18px 50px; font-size: 1.125rem; font-weight: 300; line-height: 1.6; color: #000; }
+.faq-acc-item.open .faq-acc-a { display: block; }
+.faq-acc-a a { color: #138d94; text-decoration: underline !important; }
+.faq-acc-a a:hover { opacity: 0.8; }
+
+/* -------- CLOSING CTA SECTION (Block 3) -------- */
+.closing-cta-section { display: flex; flex-direction: column; gap: 24px; padding: 0 1rem 20px 1rem; }
+.closing-cta-text { font-size: 1.125rem; font-weight: 300; line-height: 1.6; color: #000; }
+.closing-cta-text p { margin: 0; }
+.closing-cta-card { background-color: #138d94; color: white; border-radius: 10px; padding: 28px; display: flex; flex-direction: column; }
+.closing-cta-card .card-label { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; margin-bottom: 16px; opacity: 0.9; text-transform: uppercase; color: white; }
+.closing-cta-card .card-line { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-top: 1px solid rgba(255,255,255,0.18); font-size: 1rem; color: white; }
+.closing-cta-card .card-line .k { font-weight: 700; letter-spacing: 0.08em; font-size: 0.8rem; text-transform: uppercase; opacity: 0.85; }
+.closing-cta-card .card-line .v { font-weight: 600; }
+.closing-cta-card .card-cta { display: inline-flex; align-items: center; margin-top: 22px; padding: 12px 22px; background: #ffffff; color: #138d94; border-radius: 6px; font-weight: 700; text-decoration: none !important; transition: transform 0.15s ease; align-self: flex-start; font-size: 1rem; }
+.closing-cta-card .card-cta::after { content: " \2192"; margin-left: 8px; }
+.closing-cta-card .card-cta:hover { transform: scale(1.03); color: #138d94; text-decoration: none !important; }
+
+/* -------- RELATED SERVICES (Block 3) -------- */
+.related-services { padding: 30px 1rem 10px 1rem; margin-top: 40px; border-top: 1px solid rgba(19,141,148,0.1); }
+.related-services p { font-size: 0.8rem; font-weight: 400; color: #999; margin: 0; }
+.related-services a { color: #999; text-decoration: underline !important; transition: color 0.2s ease; }
+.related-services a:hover { color: #138d94; }
+
+/* -------- MOBILE -------- */
+@media (max-width: 1024px) {
+  .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  html { font-size: 12px; }
+  .pf-hero h1 { font-size: 2rem; }
+  .pf-stats-card { grid-template-columns: repeat(2, 1fr); gap: 20px; padding: 24px 20px; }
+  .pf-stats-card .stat-num { font-size: 1.8rem; }
+  .testimonials-grid { grid-template-columns: 1fr; gap: 16px; }
+  .section-heading { margin-top: 40px; }
+  .closing-cta-card .card-cta { align-self: stretch; justify-content: center; }
+  .faq-acc-q { padding: 16px 4px; }
+  .faq-acc-a { padding: 0 0 16px 40px; }
+}
