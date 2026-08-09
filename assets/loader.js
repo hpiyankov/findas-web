@@ -17,8 +17,16 @@
 
    Every other block: the stub line alone.
 
-   The asset origin appears in exactly one place per page — the bootstrap.
-   Moving to a Cloudflare-fronted host later costs one re-paste per page.
+   Origin is assets.findas.org: GitHub Pages behind the Cloudflare that
+   already fronts findas.org. Same-domain, so the browser reuses the
+   connection it has open rather than doing a second DNS + TLS handshake,
+   and Cloudflare serves from an edge node near the visitor. Measured
+   76ms cold against 187ms direct to GitHub. A Cache Rule scoped to this
+   hostname keeps the origin's 10-minute TTL; without it Cloudflare's
+   legacy 4-hour Browser Cache TTL overrides it and edits go unseen.
+
+   The origin appears in exactly one place per page — the bootstrap — so
+   changing it costs one re-paste per migrated page.
 
    The bootstrap is INLINE on purpose. Softr is known to execute inline
    scripts in a custom-code block (the pre-migration accordion did); it is
@@ -42,7 +50,7 @@
   if (window.__findasLoader) return;
   window.__findasLoader = true;
 
-  var ROOT = "https://hpiyankov.github.io/findas-web/";
+  var ROOT = "https://assets.findas.org/";
   var BASE = ROOT + "pages/";
   var ATTR = "data-findas-include";
   var DONE = "data-findas-loaded";

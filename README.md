@@ -3,7 +3,7 @@
 Public assets for the [FinDaS](https://www.findas.org) website: stylesheet, scripts, and the
 HTML fragments that fill the site's custom-code blocks.
 
-Served by GitHub Pages at `https://hpiyankov.github.io/findas-web/`. A push is a deploy.
+Served by GitHub Pages at `https://assets.findas.org/`. A push is a deploy.
 
 ## Why this exists
 
@@ -14,7 +14,7 @@ only blocks. So the **first custom-code block on a page** carries a bootstrap:
 ```html
 <script>
 (function () {
-  var root = 'https://hpiyankov.github.io/findas-web/';
+  var root = 'https://assets.findas.org/';
   var css = document.createElement('link');
   css.rel = 'stylesheet';
   css.href = root + 'assets/findas.css';
