@@ -9,8 +9,15 @@ fronts findas.org. A push is a deploy.
 ## Deploying
 
 1. Push. GitHub Pages rebuilds in roughly 45 seconds.
-2. **Purge Cloudflare** (Caching → Configuration → Purge Everything), or wait out the
-   600-second edge TTL.
+2. **Purge the Cloudflare edge** — scripted against the API by the maintainer, or by hand in
+   the dashboard (Caching → Configuration). Or wait out the 600-second edge TTL.
+
+`assets/findas.css` carries a `deploy-marker` on its first line, bumped on deploy. It is the
+fastest way to tell what is actually live past a cache:
+
+```
+curl -s https://assets.findas.org/assets/findas.css | head -1
+```
 
 Skipping step 2 is the failure that has already happened once: Cloudflare kept serving the
 previous `loader.js`, which still pointed at the old origin, and the fragments failed CORS on
