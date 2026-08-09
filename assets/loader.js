@@ -8,16 +8,17 @@
    and this script pulls in the stylesheet and site.js itself. Adding a
    font or another script later therefore needs no re-paste anywhere.
 
-   Per page, block 1:
-
-       <script>
-       (function(){var s=document.createElement('script');
-       s.src='https://hpiyankov.github.io/findas-web/assets/loader.js';
-       document.head.appendChild(s);})();
-       </script>
-       <div data-findas-include="portfolio/block-1"></div>
+   Per page, block 1 (see README for the exact paste): the bootstrap
+   injects the stylesheet AND this script. The stylesheet is in the
+   bootstrap rather than left to this file on purpose — measured on the
+   live page, it lands at 4ms that way against ~150ms if it waits for
+   loader.js to arrive first. This file still injects it if absent, so an
+   older bootstrap keeps working; the guards below make both paths safe.
 
    Every other block: the stub line alone.
+
+   The asset origin appears in exactly one place per page — the bootstrap.
+   Moving to a Cloudflare-fronted host later costs one re-paste per page.
 
    The bootstrap is INLINE on purpose. Softr is known to execute inline
    scripts in a custom-code block (the pre-migration accordion did); it is

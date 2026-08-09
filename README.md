@@ -13,9 +13,17 @@ only blocks. So the **first custom-code block on a page** carries a bootstrap:
 
 ```html
 <script>
-(function(){var s=document.createElement('script');
-s.src='https://hpiyankov.github.io/findas-web/assets/loader.js';
-document.head.appendChild(s);})();
+(function () {
+  var root = 'https://hpiyankov.github.io/findas-web/';
+  var css = document.createElement('link');
+  css.rel = 'stylesheet';
+  css.href = root + 'assets/findas.css';
+  css.setAttribute('data-findas', 'css');
+  document.head.appendChild(css);
+  var js = document.createElement('script');
+  js.src = root + 'assets/loader.js';
+  document.head.appendChild(js);
+})();
 </script>
 <div data-findas-include="portfolio/block-1"></div>
 ```
