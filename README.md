@@ -15,8 +15,15 @@ fronts findas.org. A push is a deploy.
 `assets/findas.css` carries a `deploy-marker` on its first line, bumped on deploy. It is the
 fastest way to tell what is actually live past a cache:
 
-```
+```bash
 curl -s https://assets.findas.org/assets/findas.css | head -1
+```
+
+PowerShell — `curl` there is an alias for `Invoke-WebRequest` and `head` does not exist, so the
+Unix line above fails twice over:
+
+```powershell
+(Invoke-WebRequest -UseBasicParsing https://assets.findas.org/assets/findas.css).Content -split "`n" | Select-Object -First 1
 ```
 
 Skipping step 2 is the failure that has already happened once: Cloudflare kept serving the
