@@ -1,4 +1,4 @@
-/* deploy-marker: 2026-08-09-e  — bumped on deploy; the fastest way to tell
+/* deploy-marker: 2026-08-09-f  — bumped on deploy; the fastest way to tell
    what is actually live past a cache. Check with: curl -s
    https://assets.findas.org/assets/findas.css | head -1                  */
 /* =====================================================================
@@ -6,13 +6,12 @@
    Source of truth. Served from assets.findas.org (GitHub Pages behind
    Cloudflare); see website/decisions.md 2026-08-09.
 
-   Pulled in by the inline bootstrap in each page's first custom-code
-   block, NOT by app-level Settings custom code. Two reasons, both load-
-   bearing: the `html { font-size: 12px }` mobile rule and the
-   unnamespaced `.page-wrap` overrides below are global in effect and
-   would restyle every page in the app; and Softr appends a
-   `//# sourceURL=softr-custom-code` comment to app-level head code,
-   which is harmless in CSS but silently invalidates any JSON-LD there.
+   Linked from each migrated page's first custom-code block, NOT from the
+   global footer alongside loader.js and site.js. Reason: the
+   `html { font-size: 12px }` mobile rule and the unnamespaced
+   `.page-wrap` overrides below have whole-document effect and would
+   restyle every page in the app, including pages that never opted in.
+   This was the red-team's first HIGH finding.
 
    Currently covers: /portfolio (blocks 1-3).
    Split into base + per-page files when a second page lands and the
